@@ -365,7 +365,7 @@ curl --request POST \
 ```
 ---
 
-## 4. Rodando os testes
+## To run the tests
 
 To run the tests, run the following command in app-buzzvel folder
 
