@@ -6,6 +6,7 @@ use App\Http\Requests\StoreUpdateHolidayPlan;
 use App\Models\HolidayPlan;
 use Barryvdh\DomPDF\Facade\Pdf;
 use DateTime;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class HolidayPlanController extends Controller
