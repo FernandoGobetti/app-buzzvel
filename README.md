@@ -20,7 +20,7 @@ In addition to PHP, I also have knowledge in HTML 5, CSS, Sass, JavaScript, jQue
 I am also familiar with relational databases such as MySQL, MariaDB, PostgreSQL, and SQL Server.
 
 
-## Technologies used in this project
+## 1. Technologies used in this project
 
 - Laravel Version 10.47.0
     - Laravel Sanctun
@@ -28,28 +28,28 @@ I am also familiar with relational databases such as MySQL, MariaDB, PostgreSQL,
 - MySQL Version 5.7.22
 - Docker
 - Nginx
-## Steps to run the project
+## 2. Steps to run the project
 
 Clone Repository
 
-```sh
+```bash
 git clone -b main https://github.com/FernandoGobetti/app-buzzvel.git app-buzzvel
 
 cd app-buzzvel
 ```
 
 Builds, (re)creates, starts, and attaches to containers for a service.
-```sh
+```bash
 docker-compose up -d
 ```
 
 Open the container app
-```sh
+```bash
 docker-compose exec app bash
 ```
 
 Install project dependencies and generate keys
-```sh
+```bash
 composer install
 
 php artisan key:generate
@@ -57,7 +57,7 @@ php artisan key:generate
 Now you can access the project via the link
 [http://localhost:8989](http://localhost:8989), has only one route to create users.
 
-## API Documentation
+## 3. API Documentation
 
 For create users http://localhost:8989/register.
 Once you have registered a user, you will get the bearer token ( in login request ) which will be used in almost all calls.
@@ -77,7 +77,7 @@ curl --request POST \
 | `password` | `string` | **Mandatory**. Password informed in http://localhost:8989/register |
 
 #### Response data
-```http
+```json
 {
 	"message": "Authorized",
 	"token": {
@@ -98,16 +98,11 @@ curl --request POST \
 }
 ```
 ---
----
----
----
----
----
----
+
 
 ### List all Holidays PLan EndPoint
 
-```http
+```bash
 curl --request GET \
   --url http://localhost:8989/api/holiday \
   --header 'Accept: application/json' \
@@ -117,7 +112,7 @@ curl --request GET \
 ```
 
 #### Response data
-```http
+```json
  {
 	"current_page": 1,
 	"data": [
@@ -162,12 +157,8 @@ curl --request GET \
 }
 ```
 ---
----
----
----
----
----
----
+
+
 ### List one Holidays PLan by ID EndPoint
 
 ```bash
@@ -185,7 +176,7 @@ curl --request GET \
 
 
 #### Response data
-```http
+```json
   {
 	"id": 1,
 	"title": "New Year",
@@ -220,12 +211,7 @@ curl --request GET \
 }
 ```
 ---
----
----
----
----
----
----
+
 
 ### Create Holidays Plan EndPoint
 
@@ -247,7 +233,7 @@ curl --request POST \
 
 
 #### Response data
-```http
+```json
   {
 	"title": "New Year",
 	"description": "Happy new Year",
@@ -259,12 +245,7 @@ curl --request POST \
 }
 ```
 ---
----
----
----
----
----
----
+
 
 ### Update Holidays Plan EndPoint
 
@@ -288,7 +269,7 @@ curl --request PUT \
 
 
 #### Response data
-```http
+```json
   {
 	"title": "New Year",
 	"description": "Happy new Year",
@@ -299,12 +280,6 @@ curl --request PUT \
 	"id": 240
 }
 ```
----
----
----
----
----
----
 ---
 
 ### Delete Holidays Plan EndPoint
@@ -324,7 +299,7 @@ curl --request DELETE \
 
 
 #### Response data
-```http
+```json
   {
 	"title": "New Year",
 	"description": "Happy new Year",
@@ -336,12 +311,7 @@ curl --request DELETE \
 }
 ```
 ---
----
----
----
----
----
----
+
 
 ### Create participants EndPoint
 
@@ -361,7 +331,7 @@ curl --request POST \
 
 
 #### Response data
-```http
+```json
 [
 	{
 		"id": 239,
@@ -394,14 +364,8 @@ curl --request POST \
 ]
 ```
 ---
----
----
----
----
----
----
-## Rodando os testes
 
+## 4. Rodando os testes
 
 To run the tests, run the following command in app-buzzvel folder
 
