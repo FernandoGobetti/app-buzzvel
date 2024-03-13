@@ -103,8 +103,8 @@ curl --request POST \
 
 | Parâmetro   | Tipo       | Descrição                           |
 | :---------- | :--------- | :---------------------------------- |
-| `email` | `string` | **Mandatory**. E-mail informed in http://localhost:8989/register |
-| `password` | `string` | **Mandatory**. Password informed in http://localhost:8989/register |
+| `email`    | `string` | **Mandatory**. Unique                 |
+| `password` | `string` | **Mandatory**. String min:3, max:255  |
 
 #### Response data
 ```json
