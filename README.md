@@ -48,9 +48,11 @@ Open the container app
 docker-compose exec app bash
 ```
 
-Install project dependencies and generate keys
+Install project dependencies, creates all tables in the database and generate keys
 ```bash
 composer install
+
+php artisan migrate
 
 php artisan key:generate
 ```
