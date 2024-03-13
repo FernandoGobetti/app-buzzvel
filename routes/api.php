@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\HolidayPlanController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ParticipantsController;
 use App\Http\Controllers\AuthController;
@@ -15,6 +15,8 @@ use App\Http\Controllers\AuthController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::post('createuser', [UsersController::class, 'store']);
+Route::post('login', [AuthController::class, 'login'])->name('login');
 
 Route::middleware('auth:sanctum')->group(function (){
     Route::get('/holiday/pdf/{id}', [HolidayPlanController::class, 'generatePdf']);
@@ -24,4 +26,3 @@ Route::middleware('auth:sanctum')->group(function (){
     Route::post('/holiday/{id}/participants', [ParticipantsController::class, 'store']);
 });
 
-Route::post('login', [AuthController::class, 'login'])->name('login');

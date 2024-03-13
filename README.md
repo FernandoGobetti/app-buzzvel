@@ -48,9 +48,11 @@ Open the container app
 docker-compose exec app bash
 ```
 
-Install project dependencies and generate keys
+Install project dependencies, creates all tables in the database and generate keys
 ```bash
 composer install
+
+php artisan migrate
 
 php artisan key:generate
 ```
@@ -59,8 +61,36 @@ Now you can access the project via the link
 
 ## 3. API Documentation
 
-For create users http://localhost:8989/register.
-Once you have registered a user, you will get the bearer token ( in login request ) which will be used in almost all calls.
+To make any call, you must first create a user and then log in to get the token.
+
+### Create User EndPoint
+
+```bash
+curl --request POST \
+  --url 'http://localhost:8989/api/createuser?email={email}&password={password}&name={nameUser}' \
+  --header 'Accept: application/json' \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: insomnia/8.6.1'
+```
+
+| Parâmetro  | Tipo       | Descrição                             |
+|:-----------| :--------- |:--------------------------------------|
+| `email`    | `string` | **Mandatory**. Unique                 |
+| `password` | `string` | **Mandatory**. String min:3, max:255  |
+| `nameUser` | `string` | **Mandatory**.  String min:3, max:255 |
+
+#### Response data
+```json
+{
+    "email": "fernando.gobetti4@hotmail.com.br",
+    "name": "Fernando Gobetti",
+    "updated_at": "2024-03-13T02:26:54.000000Z",
+    "created_at": "2024-03-13T02:26:54.000000Z",
+    "id": 10
+}
+```
+---
+
 
 ### Login EndPoint
 
@@ -365,7 +395,7 @@ curl --request POST \
 ```
 ---
 
-## 4. Rodando os testes
+## To run the tests
 
 To run the tests, run the following command in app-buzzvel folder
 
